@@ -20,3 +20,19 @@ def show_all_notes():
     for note in favorite_notes:
         print(f"{note['id']}. {note['text']}")
 
+
+def delete_note(note_id):
+    if not favorite_notes:
+        return "Нет заметок для удаления"
+
+    for i, note in enumerate(favorite_notes):
+        if note['id'] == note_id:
+            deleted_note = favorite_notes.pop(i)
+            # Перенумерация ID
+            for idx, remaining_note in enumerate(favorite_notes, start=1):
+                remaining_note['id'] = idx
+            return f"✅ Заметка '{deleted_note['text']}' удалена"
+
+    return f" Заметка с ID {note_id} не найдена"
+
+
