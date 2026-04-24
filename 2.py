@@ -36,3 +36,15 @@ def delete_note(note_id):
     return f" Заметка с ID {note_id} не найдена"
 
 
+def calculate_taxi_price(distance_km):
+    base_price = 100
+    price_per_km = 25
+
+    if distance_km > 20:
+        price_per_km = 20
+    elif distance_km > 10:
+        price_per_km = 22
+
+    total = base_price + (distance_km * price_per_km)
+    return round(total, 2)
+
