@@ -48,3 +48,12 @@ def calculate_taxi_price(distance_km):
     total = base_price + (distance_km * price_per_km)
     return round(total, 2)
 
+
+def show_menu():
+    print(" ИЗБРАННОЕ: ЗАМЕТКИ И ТАКСИ ")
+    print("1.  Добавить заметку в избранное")
+    print("2.  Показать все избранные заметки")
+    print("3.  Удалить заметку")
+    print("4.  Рассчитать стоимость такси")
+    print("0.  Выход")
+
