@@ -57,3 +57,49 @@ def show_menu():
     print("4.  Рассчитать стоимость такси")
     print("0.  Выход")
 
+
+def main():
+    while True:
+        show_menu()
+        choice = input("\nВыберите действие (0-4): ")
+
+        if choice == '0':
+            print("\nДо свидания! Ваши заметки сохранены. ")
+            break
+
+        elif choice == '1':
+            note = input("Введите заметку: ")
+            result = add_favorite_note(note)
+            print(f"\n {result}")
+
+        elif choice == '2':
+            print("\n ВАШИ ИЗБРАННЫЕ ЗАМЕТКИ:")
+            print("-" * 40)
+            show_all_notes()
+
+        elif choice == '3':
+            show_all_notes()
+            try:
+                num = int(input("\nВведите номер заметки для удаления: "))
+                result = delete_note(num)
+                print(f"\n{result}")
+            except ValueError:
+                print("\n Ошибка: введите корректный номер!")
+
+        elif choice == '4':
+            print("\n РАСЧЁТ СТОИМОСТИ ТАКСИ:")
+            try:
+                distance = float(input("Введите расстояние (км): "))
+                if distance < 0:
+                    print("\n Расстояние не может быть отрицательным!")
+                    continue
+                price = calculate_taxi_price(distance)
+                print(f"\n Стоимость поездки: {price} руб.")
+            except ValueError:
+                print("\n Ошибка: введите корректное число!")
+        else:
+            print("\n Неверный выбор! Попробуйте снова.")
+
+
+if __name__ == "__main__":
+    main()
